@@ -1,0 +1,23 @@
+{
+  "name": "rpni3-tp1-formulaire",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch src/scss:public/css",
+    "build": "sass src/scss:public/css --style=expanded --source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BastienSeel/RPNI3-TP1-Formulaire.git"
+  },
+  "author": "Bastien Seel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BastienSeel/RPNI3-TP1-Formulaire/issues"
+  },
+  "homepage": "https://github.com/BastienSeel/RPNI3-TP1-Formulaire#readme",
+  "description": "",
+  "devDependencies": {
+    "normalize.scss": "^0.1.0"
+  }
+}
