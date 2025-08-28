@@ -13,14 +13,15 @@
 <body>
     
     <main>
-        <form action="post" method="post">
+        <form action="merci.html" method="post">
+        
         <fieldset class="dons">
             <legend>Étape 1</legend>
 
-            <input type="radio" name="choix_don" id="don1">
+            <input type="radio" name="choix_don" id="don_unique">
             <label for="don1">Je fais un don unique</label><br>
 
-            <input type="radio" name="choix_don" id="don2">
+            <input type="radio" name="choix_don" id="don_mensuel">
             <label for="don2">Je fais un don mensuel</label><br>
             <br>
             <input type="radio" name="montant_don" id="montant_1">
@@ -40,15 +41,19 @@
             <legend>Étape 2</legend>
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required><br>
+            <span id="message_erreur_nom"></span>
             
             <label for="prénom">Prénom :</label>
             <input type="text" id="prénom" name="prénom" required><br>
+            <span id="message_erreur_prenom"></span>
 
             <label for="email">Adresse e-mail :</label>
             <input type="email" id="email" name="email" placeholder="Email" required><br>
+            <span id="message_erreur_email"></span>
 
             <label for="telephone">Numéro de téléphone:</label>
             <input type="telephone" id="telephone" name="telephone" placeholder="numéro de téléphone" required><br>
+            <span id="message_erreur_telephone"></span>
 
             <label for="province">Province ou territoire :</label>
             <select id="province" name="province" required>
@@ -71,9 +76,14 @@
 
         <fieldset class="paiement">
             <legend>Étape 3</legend>
-            <input type="password" id="num_carte" name="num_carte" placeholder="Numéro de carte de crédit" required>
-            <input type="password" id="date_exp" name="date_exp" placeholder="Date d'expiration (MM/AA)" required><br>
-            <input type="password" id="CVC" name="CVC" placeholder="CVC" required><br>
+            <input type="password" id="num_carte" name="num_carte" placeholder="Numéro de carte de crédit" maxlength="16" required>
+            <span id="message_erreur_num"></span>
+
+            <input type="month" id="date_exp" name="date_exp" placeholder="Date d'expiration (MM/AA)" required><br>
+            <span id="message_erreur_dateExp"></span>
+
+            <input type="password" id="CVC" name="CVC" placeholder="CVC" maxlength="4" required><br>
+            <span id="message_erreur_CVC"></span>
         </fieldset>
         <button type="submit">Envoyer le don</button>
 
