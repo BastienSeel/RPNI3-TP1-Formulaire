@@ -33,9 +33,13 @@
             <input type="radio" name="montant_don" id="montant_4">
             <label for="montant_4">200$</label><br>
 
+
+
             <label for="montant_5">Autre montant :</label>
-            <input type="number" name="montant_don" id="montant_5">
-       
+            <input type="radio" name="montant_don" id="montant_5">
+            <input hidden type="number" name="montant_don" id="montant_autre" min="5">
+            <br><br>
+            <button type="button" id="bouton_suivantEtape1">Passer à l'étape suivante</button>
         </fieldset>
         <fieldset class="informations">
             <legend>Étape 2</legend>
@@ -72,6 +76,7 @@
                 <option value="NU">Nunavut</option>
                 <option value="YT">Yukon</option>
             </select><br><br>
+            <button type="button" id="bouton_suivantEtape1">Passer à l'étape suivante</button>
         </fieldset>
 
         <fieldset class="paiement">
@@ -84,14 +89,16 @@
 
             <input type="password" id="CVC" name="CVC" placeholder="CVC" maxlength="4" required><br>
             <span id="message_erreur_CVC"></span>
+            <br><br>
+            <button type="button" id="bouton_suivantEtape1">Passer à l'étape suivante</button>
         </fieldset>
-        <button type="submit">Envoyer le don</button>
+        
 
         <fieldset class="resume">
             <legend>Étape 4</legend>
         </fieldset>
 
-        
+        <button type="submit">Envoyer le don</button>
 
         
     </form>
