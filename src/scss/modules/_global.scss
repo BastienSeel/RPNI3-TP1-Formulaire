@@ -1,0 +1,21 @@
+#titre_h1{
+  color: #E87722;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+.cacher {
+  display: none;
+}
+.navigation__etape{
+  &--liste{
+
+  }&--lien{
+    color: orange;
+  }
+
+}
+/*.fieldset-formulaire{
+  @include global.fieldsetGlobal;
+}*/

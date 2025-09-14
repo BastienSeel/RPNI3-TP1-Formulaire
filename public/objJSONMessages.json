@@ -1,0 +1,27 @@
+{
+    "montant": {
+        "vide": "Vous devez choisir un montant de don.",
+        "pattern": "champ invalide.",
+        "type": "champ invalide."
+    },
+    "prenom": {
+        "vide": "Vous devez entrer votre prénom.",
+        "pattern": "Pour le prénom, les accents français, les espaces, les tirets et les apostrophes sont permis.",
+        "type": "champ invalide."
+    },
+    "nom": {
+        "vide": "Vous devez entrer votre nom de famille.",
+        "pattern": "Pour le nom de famille, les accents français, les espaces, les tirets et les apostrophes sont permis.",
+        "type": "champ invalide."
+    },
+    "courriel": {
+        "vide": "Vous devez entrer votre adresse courriel.",
+        "pattern": "Assurez-vous d'entrer une adresse courriel valide.",
+        "type": "champ invalide."
+    },
+    "telephone": {
+        "vide": "Vous devez entrer un numéro valide",
+        "pattern": "Vous devez entrer un numéro valide",
+        "type": "champ invalide."
+    }
+}

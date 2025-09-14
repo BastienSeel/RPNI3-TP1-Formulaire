@@ -16,6 +16,20 @@
 
 /********** Utilitaires de base **********/
 
+/********** Créer par Bastien Seel **********/
+@mixin fieldsetGlobal{
+  border: dashed 3px $NoirChateau;
+  display: flex;
+  flex-direction: column;
+}
+/*@mixin fieldsetLocal{
+
+}*/
+
+
+
+
+
 /** Box sizing **/
 @mixin border-box-sizing {
     html {
