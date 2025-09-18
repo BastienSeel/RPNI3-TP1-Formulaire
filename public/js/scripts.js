@@ -9,20 +9,25 @@ let boutonSuivant = document.getElementById("bouton_suivant");
 let boutonPrecedent = document.getElementById("bouton_precedent");
 let boutonDon = document.getElementById("bouton_don");
 //Récupération des élements de là navigation
-const liNavigation = document.querySelectorAll('li');
+const itemNav = document.querySelectorAll('.navigation__etape');
+const liNavigation = document.querySelectorAll('.navigation__etape--item');
+const boutonNavigation = document.querySelectorAll('a');
 /* Initialisation */
 function initialiser() {
     console.log("Initialisation du formulaire");
     boutonSuivant?.addEventListener("click", naviguerEtapes);
     boutonPrecedent?.addEventListener("click", naviguerEtapes);
     boutonDon?.addEventListener("click", naviguerEtapes);
+    boutonNavigation.forEach(bouton => {
+        bouton.addEventListener("click", naviguerNavigation);
+    });
     boutonPrecedent?.classList.add("cacher");
     boutonDon?.classList.add("cacher");
     section.forEach(element => { element.classList.add("cacher"); });
     section[0].classList.remove("cacher");
 }
 /*Afficher les sections */
-function afficherSection() {
+function afficherSection(event) {
     const etapeActuelle = document.querySelectorAll(".section_etape");
     cacherSection();
     if (etape >= 0 && etape < etapeActuelle.length) {
@@ -35,15 +40,33 @@ function cacherSection() {
     section.forEach(section => { section.classList.add("cacher"); });
 }
 /*Changement navigation d'étapes*/
-/*function changementNavEtape(){
-    const valeur = liNavigation.dataset.etape
-    const creationA = document.createElement('a');
-
-    valeur.appendChild(creationA);
-    
-
-    
-} */
+function changementNavEtape() {
+    for (let i = 0; i < liNavigation.length; i++) {
+        const li = liNavigation[i];
+        const lien = li.querySelector("a");
+        if (i <= etape) {
+            li.setAttribute("aria-current", "step");
+            lien?.classList.remove("navigation__etape--inactive");
+            lien?.classList.add("navigation__etape--active");
+            lien?.removeAttribute("aria-disabled");
+        }
+        else {
+            lien?.classList.remove("navigation__etape--active");
+            lien?.classList.add("navigation__etape--inactive");
+        }
+    }
+}
+/* Permet la navigation avec les liens */
+function naviguerNavigation(event) {
+    const indexEtape = parseInt(event.currentTarget.dataset.etape);
+    if (indexEtape <= etape) {
+        etape = indexEtape;
+        afficherSection(etape);
+        changementNavEtape();
+        boutonEtape();
+    }
+    console.log(etape);
+}
 /* Permet de naviguer entre les étapes du formulaire */
 function naviguerEtapes(event) {
     console.log(etape);
@@ -51,8 +74,8 @@ function naviguerEtapes(event) {
         case "bouton_suivant":
             if (etape < section.length - 1) {
                 etape++;
-                afficherSection();
-                //changementNavEtape();
+                afficherSection(etape);
+                changementNavEtape();
             }
             else {
                 etape === section.length - 1;
@@ -61,11 +84,15 @@ function naviguerEtapes(event) {
         case "bouton_precedent":
             if (etape > 0) {
                 etape--;
-                afficherSection();
+                afficherSection(etape);
+                changementNavEtape();
             }
             break;
     }
-    /* Gestion de l'affichage des boutons */
+    boutonEtape();
+}
+/* Gestion de l'affichage des boutons*/
+function boutonEtape() {
     if (etape === 0) {
         boutonPrecedent?.classList.add("cacher");
     }

@@ -1,3 +1,6 @@
+@use  "../utilitaires/mixins";
+@use "../utilitaires/variables";
+
 #titre_h1{
   color: #E87722;
   font-size: 36px;
@@ -8,14 +11,58 @@
 .cacher {
   display: none;
 }
+
+/*CSS pour la navigation (liens)*/
 .navigation__etape{
+  padding: 50px 0 ;
   &--liste{
-
-  }&--lien{
-    color: orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content:space-evenly;
+  }&--active{
+   color: variables.$OrangeChateau;
+   
+  }&--active span:first-child{
+    background-color: variables.$OrangeChateau;
+    color: variables.$BlancOeufChateau;
   }
+  &--inactive{
+    color: variables.$GrisChateau;
+    cursor: not-allowed;
+    text-decoration: none;
+  }&--lien{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
 
+  }  &--etape-chiffre{
+    border:  solid 2px variables.$OrangeChateau;
+    border-radius: 100%;
+    color: variables.$NoirChateau;
+    text-align: center;
+    align-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: variables.$BlancOeufChateau;
+  }
 }
-/*.fieldset-formulaire{
-  @include global.fieldsetGlobal;
-}*/
+/*CSS pour la première étape 'Faire un don'*/
+// .paiement__groupe{
+//   &--infoMontant{
+
+    
+       
+       
+        
+//   }
+// }
+.fieldset-formulaire{
+  @include mixins.fieldsetGlobal;
+}
+.fieldset-local{
+  @include mixins.fieldsetLocal;
+}
+
+
